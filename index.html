@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+        * {
+            font-family: 'Orbitron', sans-serif;
+            ;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #191b28;
+            width: 400px;
+            padding: 17px 22px;
+            height: 344px;
+            border-radius: 20px;
+        }
+
+        .button {
+            width: 100%;
+            height: 65%;
+            background-color: #64278f;
+            color: white;
+            border-radius: 10%;
+            font-size: larger;
+            padding: 10px;
+        }
+
+        .display {
+            width: 100%;
+            height: 100%;
+        }
+
+        #clear {
+            background-color: #fb0066;
+            border-radius: 10%;
+            margin-left: 3px;
+        }
+
+        #display {
+            height: 90%;
+            border-radius: 5%;
+            background-color: white;
+            border: 0.5px solid black;
+        }
+
+        #equal {
+            background-color: #fb0066;
+        }
+        h1{
+           text-align: center;
+           
+    </style>
+</head>
+
+<body>
+    <h1>CALCULATOR</h1>
+    <table class="center">
+        <tr>
+            <td colspan="3"><input type="text" class='display' id='display' disabled></td>
+            <td><input id='clear' class='display' type="button" value="C" onclick="clearScreen()"></td>
+        </tr>
+
+        <tr>
+            <td><input class='button' type="button" value="1" onclick="display('1')"></td>
+            <td><input class='button' type="button" value="2" onclick="display('2')"></td>
+            <td><input class='button' type="button" value="3" onclick="display('3')"></td>
+            <td><input class='button' type="button" value="/" onclick="display('/')"></td>
+        </tr>
+
+        <tr>
+            <td><input class='button' type="button" value="4" onclick="display('4')"></td>
+            <td><input class='button' type="button" value="5" onclick="display('5')"></td>
+            <td><input class='button' type="button" value="6" onclick="display('6')"></td>
+            <td><input class='button' type="button" value="-" onclick="display('-')"></td>
+        </tr>
+
+        <tr>
+            <td><input class='button' type="button" value="7" onclick="display('7')"></td>
+            <td><input class='button' type="button" value="8" onclick="display('8')"></td>
+            <td><input class='button' type="button" value="9" onclick="display('9')"></td>
+            <td><input class='button' type="button" value="+" onclick="display('+')"></td>
+        </tr>
+
+        <tr>
+            <td><input class='button' type="button" value="." onclick="display('.')"></td>
+            <td><input class='button' type="button" value="0" onclick="display('0')"></td>
+            <td><input class='button' type="button" value="=" onclick="calculate()" id="equal"></td>
+            <td><input class='button' type="button" value="*" onclick="display('*')"></td>
+        </tr>
+    </table>
+
+    <script>
+        function display(value){
+            document.getElementById('display').value +=value;
+        }
+
+        function calculate(){
+            var p = document.getElementById('display').value;
+            var result = eval(p);
+            document.getElementById('display').value = result;
+        }
+
+        function clearScreen(){
+            document.getElementById("display").value = ''
+        }
+    </script>
+</body>
+
+</html>
